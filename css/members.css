@@ -1,0 +1,50 @@
+/* Member List */
+/* ========================================================================== */
+
+
+#members-list {
+    margin-right: -20px;
+}
+
+#members-list li {
+    display: block;
+    background: #fff;
+    width: 280px;
+    margin-bottom: 20px;
+    padding: 10px;
+    float: left;
+    margin-right: 20px;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+#members-list li .item-avatar {
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin-right: 10px;
+}
+#members-list li .item {
+    margin-left: 58px;
+}
+#members-list li .item .item-title,
+#members-list li .item .item-meta {
+    overflow: hidden;
+}
+#members-list li .item .item-title a {
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+#members-list li .item .item-title a:hover {
+    text-decoration: underline;
+}
+#members-list li .item .item-meta {
+    color: #888A85;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}

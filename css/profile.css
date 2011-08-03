@@ -1,0 +1,499 @@
+
+/* Member Sidebar */
+/* ========================================================================== */
+
+#item-sidebar {
+    width: 256px;
+    float: left;
+}
+
+#item-sidebar #item-header-avatar a {
+    display: block;
+}
+
+#item-sidebar #object-nav {
+    margin-top: 20px;
+    border-top: 1px solid #d3d7cf;
+}
+#item-sidebar #object-nav li {
+    display: block;
+    border-bottom: 1px solid #d3d7cf;
+}
+#item-sidebar #object-nav li a {
+    display: block;
+    text-decoration: none;
+    padding: 4px 12px;
+    color: inherit;
+}
+#item-sidebar #object-nav li.selected a {
+    background: #ececec url(../images/object-nav-selected-arrow.png) right center no-repeat;
+    font-weight: bold;
+}
+
+
+/* Member Content */
+/* ========================================================================== */
+
+#item-content {
+    float: left;
+    margin-left: 30px;
+    width: 654px;
+}
+
+
+/* Member Header */
+/* ========================================================================== */
+
+
+#item-header-content {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+#item-header-content h2 {
+    color: #000;
+    font-size: 32px;
+    margin: 0;
+}
+#item-header-content h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+#item-header-content h2 em {
+    color: #888a85;
+    font-style: normal;
+    font-weight: normal;
+}
+#item-header-content h3 {
+    font-weight: normal;
+    color: #204a87;
+    margin: -0.4em 0 0 0;
+}
+#item-header-content #about-me {
+    color: #555753;
+    font-family: Georgia, serif;
+    font-size: 16px;
+}
+
+/* Update Messages */
+/* ========================================================================== */
+
+#message {
+    padding: 5px;
+    margin-bottom: 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid;
+}
+#message.error {
+    background: #fed1a5;
+    border-color: #f17243;
+}
+#message.updated {
+    background: #fef6b6;
+    border-color: #f1bc43;
+}
+#message.info {
+    background: #f3f6f8;
+    border-color: #d4dbe4;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+/* Subnavigation */
+/* ========================================================================== */
+
+#subnav {
+    background: #d7dad7;
+    background: -moz-linear-gradient(bottom, #d7dad7, #f4f6f4);
+    background: -webkit-linear-gradient(bottom, #d7dad7, #f4f6f4);
+    background: linear-gradient(bottom, #d7dad7, #f4f6f4);
+    overflow: hidden;
+    border: 1px solid #898e89;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+#subnav li {
+    float: left;
+    border-right: 1px solid #898e89;
+    -moz-box-shadow: inset 1px 1px rgba(100%, 100%, 100%, 0.5);
+    -webkit-box-shadow: inset 1px 1px rgba(100%, 100%, 100%, 0.5);
+    box-shadow: inset 1px 1px rgba(100%, 100%, 100%, 0.5);
+    text-shadow: 0 1px 0 rgba(100%, 100%, 100%, 0.5);
+}
+#subnav li:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+#subnav li:last-child {
+
+}
+#subnav li a {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: inherit;
+}
+#subnav li.selected a {
+    background: #c0c5c0;
+    background: -moz-linear-gradient(top, #c0c5c0, #d7dad7);
+    background: -webkit-linear-gradient(top, #c0c5c0, #d7dad7);
+    background: linear-gradient(top, #c0c5c0, #d7dad7);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+#subnav li.last {
+    float: right;
+    border-left: 1px solid #898e89;
+    border-right: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#subnav li.filter {
+    padding: 4px 8px;
+}
+#subnav li.filter select {
+    /*
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    font: inherit;
+    outline: 0;
+    -webkit-appearance: none;
+    */
+    /* -moz-appearance: none; *//* https://bugzilla.mozilla.org/show_bug.cgi?id=649849 */
+}
+#subnav li.filter select option {
+    outline: 0;
+}
+#subnav li.filter select option::-moz-focus-inner {
+    border: 0;
+}
+
+
+/* What's new, gnomer? */
+/* ========================================================================== */
+
+#whats-new-form {
+    overflow: hidden;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+#whats-new-form #whats-new-avatar {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    float: left;
+}
+#whats-new-form #whats-new-content {
+    float: left;
+    width: 596px;
+}
+#whats-new-form #whats-new-options {
+    display: none;
+}
+#whats-new-form #whats-new-content textarea {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font: inherit;
+    resize: vertical;
+    -webkit-transition: height 200ms linear;
+    line-height: normal;
+}
+#whats-new-form #whats-new-options
+    overflow: hidden;
+}
+#whats-new-form #whats-new-post-in-box {
+
+}
+#whats-new-form #whats-new-submit {
+    float: right;
+}
+
+
+/* Activity Entries */
+/* ========================================================================== */
+
+ul#activity-stream {
+    
+}
+
+ul#activity-stream li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+ul#activity-stream .activity-avatar {
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+ul#activity-stream .activity-avatar img {
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+ul#activity-stream .activity-content {
+    margin-left: 58px;
+}
+ul#activity-stream .activity-content .activity-header {
+    margin-top: -3px;
+}
+ul#activity-stream .activity-content .activity-header,
+ul#activity-stream .activity-content .activity-meta {
+    color: #888a85;
+    font-size: 13px;
+}
+ul#activity-stream .activity-content .activity-header a,
+ul#activity-stream .activity-content .activity-meta a {
+    color: inherit;
+    outline: none;
+}
+ul#activity-stream .activity-content .activity-header a:first-child {
+    font-weight: bold;
+    text-decoration: none;
+    color: #2E3436;
+}
+ul#activity-stream .activity-content .activity-header a:first-child:hover {
+    text-decoration: underline;
+}
+ul#activity-stream .activity-content .activity-header img {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+ul#activity-stream .activity-content .activity-header .right {
+    margin-right: 10px;
+}
+ul#activity-stream .activity-content .activity-header .delete-activity {
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-indent: 20px;
+    overflow: hidden;
+    background: url(../images/delete-icon.png) no-repeat;
+    opacity: 0;
+    -moz-transition: opacity 200ms linear;
+    -webkit-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+}
+ul#activity-stream li:hover .activity-content .activity-header .delete-activity {
+    opacity: 1;
+}
+
+
+ul#activity-stream .activity-content .activity-meta {
+    line-height: 16px;
+    margin-top: 3px;
+}
+ul#activity-stream .activity-content .activity-meta > a,
+ul#activity-stream .activity-content .activity-meta > span {
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+ul#activity-stream .activity-content .activity-meta a {
+    text-decoration: none;
+}
+ul#activity-stream .activity-content .activity-meta a:hover {
+    text-decoration: underline;
+}
+ul#activity-stream .activity-content .activity-meta a img {
+    display: block;
+}
+ul#activity-stream .activity-content .activity-meta a.fav,
+ul#activity-stream .activity-content .activity-meta a.acomment-reply {
+    opacity: 0;
+    -moz-transition: opacity 200ms linear;
+    -webkit-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+    text-decoration: none !important;
+}
+ul#activity-stream li:hover .activity-content .activity-meta a {
+    opacity: 1;
+}
+
+ul#activity-stream .activity-comments {
+    clear: left;
+    margin-left: 30px;
+    overflow: hidden;
+}
+ul#activity-stream .activity-comments > ul {
+    margin-top: 15px;
+}
+ul#activity-stream .activity-comments li {
+    padding: 0 0 0 10px;
+    border-bottom: 0;
+    border-left: 3px solid #eeeeec;
+    margin-bottom: 10px;
+}
+ul#activity-stream .activity-comments li:last-child {
+    margin-bottom: 0;
+}
+ul#activity-stream .activity-comments li ul {
+    margin: 10px 0 0 20px;
+}
+ul#activity-stream .activity-comments .acomment-avatar {
+    float: left;
+    margin-right: 6px;
+}
+ul#activity-stream .activity-comments .acomment-avatar img {
+    vertical-align: middle;
+}
+ul#activity-stream .activity-comments .acomment-content {
+    margin: 3px 0;
+}
+ul#activity-stream .activity-comments .acomment-meta {
+    color: #888a85;
+    font-size: 13px;
+    line-height: 16px;
+}
+ul#activity-stream .activity-comments .acomment-meta a.acomment-reply,
+ul#activity-stream .activity-comments .acomment-meta a.delete {
+    margin-left: 4px;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    text-indent: 20px;
+}
+ul#activity-stream .activity-comments .acomment-meta a {
+    font-weight: bold;
+    color: #2E3436;
+    text-decoration: none;
+}
+ul#activity-stream .activity-comments .acomment-meta a:hover {
+    text-decoration: underline;
+}
+ul#activity-stream .activity-comments .acomment-meta a.acomment-reply {
+    background: url(../images/reply-icon.png) no-repeat;
+}
+ul#activity-stream .activity-comments .acomment-meta a.delete {
+    background: url(../images/delete-icon.png) no-repeat;
+}
+
+
+/* Inline Activity Reply */
+/* ========================================================================== */
+
+
+.ac-form {
+    display: none;
+    clear: left;
+    padding-top: 15px;
+}
+.ac-form .ac-reply-avatar {
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin-right: 10px;
+}
+.ac-form .ac-reply-content {
+    float: left;
+    width: 536px;
+}
+.ac-form .ac-reply-content textarea {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font: inherit;
+    resize: vertical;
+}
+
+
+/* Profile Fields */
+/* ========================================================================== */
+
+
+.profile-fields {
+    width: 654px;
+}
+.profile-fields td.label {
+    border-right: 1px solid #ccc;
+    padding-left: 0;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+.profile-fields td {
+    padding: 6px 12px;
+    vertical-align: top;
+}
+.profile-fields td.map {
+    padding: 12px 0;
+}
+.profile-fields td.map #map_view {
+    height: 200px;
+}
+
+
+/* Standard Form Base */
+/* ========================================================================== */
+
+.standard-form {
+
+}
+.standard-form .editfield {
+    display: table-row;
+    width: 654px;
+}
+.standard-form .editfield label,
+.standard-form .editfield .field {
+    display: table-cell;
+    vertical-align: top;
+}
+.standard-form .editfield > label {
+    padding: 6px 12px 6px 0;
+    border-right: 1px solid #ccc;
+    text-align: right;
+    font-weight: bold;
+    white-space: nowrap;
+    min-width: 130px;
+}
+.standard-form .editfield .field {
+    padding: 6px 0 6px 12px;
+    width: 100%;
+}
+.standard-form .editfield.field_current-location .field input {
+    width: 250px;
+}
+.standard-form .editfield .field input,
+.standard-form .editfield .field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font: inherit;
+}
+.standard-form .editfield .description {
+    white-space: normal;
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: normal;
+    margin: 0 0 6px 0;
+    color: #777;
+}
+.standard-form .submit {
+    text-align: right;
+    margin-top: 10px;
+}
