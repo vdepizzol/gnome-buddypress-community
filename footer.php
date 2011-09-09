@@ -4,7 +4,21 @@
 		<?php do_action( 'bp_after_container' ) ?>
 		<?php do_action( 'bp_before_footer' ) ?>
 		
-        <div id="footer_art" class="default">
+        <?php
+        
+        if(isset($_SESSION['footer_art'])) {
+            $footer_art = $_SESSION['footer_art'];
+        } else {
+            $footer_art = 'default';
+        }
+        
+        ?>
+        <?php if($footer_art == 'default' || $footer_art == 'none'): ?>
+        <div id="footer_art" class="<?php echo $footer_art;?>">
+        <?php else: ?>
+        <div id="footer_art" style="background-image: url(<?php bloginfo('stylesheet_directory') ?>/images/footer_arts/<?php echo $footer_art;?>.png);">
+        <?php endif; ?>
+            &nbsp;
         </div>
         
         <div id="footer_grass">
