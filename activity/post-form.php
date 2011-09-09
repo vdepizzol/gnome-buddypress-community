@@ -20,7 +20,7 @@
 		if ( bp_is_group() ) :
 			$placeholder = sprintf ( __( "What's new in %s, %s?", 'buddypress' ), bp_get_group_name(), bp_get_user_firstname() );
         else :
-			$placeholder = sprintf ( __( "What's new %s?", 'buddypress' ), bp_get_user_firstname() );
+			$placeholder = sprintf ( __( "What's new, %s?", 'buddypress' ), bp_get_user_firstname() );
 		endif;
 		
 		?>
@@ -58,7 +58,12 @@
 			<?php do_action( 'bp_activity_post_form_options' ) ?>
 
 		</div><!-- #whats-new-options -->
+        
 	</div><!-- #whats-new-content -->
+    
+    <div class="clear"></div>
+    
+    <hr class="bottom_shadow" />
 
 	<?php wp_nonce_field( 'post_update', '_wpnonce_post_update' ); ?>
 	<?php do_action( 'bp_after_activity_post_form' ) ?>

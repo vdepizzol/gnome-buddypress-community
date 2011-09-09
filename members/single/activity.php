@@ -1,8 +1,10 @@
+<?php /*
 <div class="item-list-tabs no-ajax" id="subnav">
 	<ul>
 		<?php bp_get_options_nav() ?>
 	</ul>
 </div><!-- .item-list-tabs -->
+*/ ?>
 
 <?php do_action( 'bp_before_member_activity_post_form' ) ?>
 

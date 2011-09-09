@@ -20,6 +20,14 @@
                 
                 <a class="username" href="<?php bp_activity_user_link() ?>"><?php echo bp_members_get_user_nicename( bp_get_activity_user_id() ) ?></a>
                 
+                <?php
+                
+                if (bp_get_activity_type() != 'activity_update' && bp_get_activity_type() != 'activity_comment') {
+                    bp_activity_type();
+                }
+                    
+                ?>
+                
                 <?php if ( 'activity_comment' == bp_get_activity_type() ) : ?>
                     <span class="activity-inreplyto">
                         (<?php _e( 'in reply to', 'buddypress' ) ?> <a href="<?php bp_activity_thread_permalink() ?>"><?php _e( 'some existing activity', 'buddypress' ) ?></a>)
@@ -88,7 +96,7 @@
 					<div class="ac-textarea">
 						<textarea id="ac-input-<?php bp_activity_id() ?>" class="ac-input" name="ac_input_<?php bp_activity_id() ?>"></textarea>
 					</div>
-					<input type="submit" name="ac_form_submit" value="<?php _e( 'Post', 'buddypress' ) ?> &rarr;" /> &nbsp; <?php _e( 'or press esc to cancel.', 'buddypress' ) ?>
+					<input type="submit" name="ac_form_submit" value="<?php _e( 'Post', 'buddypress' ) ?> &rarr;" /><?php _e( 'Some HTML is ok. Press ESC to cancel.', 'buddypress' ) ?>
 					<input type="hidden" name="comment_form_id" value="<?php bp_activity_id() ?>" />
 				</div>
 				<?php wp_nonce_field( 'new_activity_comment', '_wpnonce_new_activity_comment' ) ?>

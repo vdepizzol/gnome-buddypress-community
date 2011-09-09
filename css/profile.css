@@ -184,8 +184,6 @@
 
 #whats-new-form {
     overflow: hidden;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ccc;
 }
 #whats-new-form #whats-new-avatar {
     width: 48px;
@@ -193,34 +191,20 @@
     margin-right: 10px;
     float: left;
 }
+#whats-new-form #whats-new-options {
+    height: auto !important;
+}
 #whats-new-form #whats-new-content {
     float: left;
     width: 596px;
-}
-#whats-new-form #whats-new-options {
-    display: none;
-}
-#whats-new-form #whats-new-content textarea {
-    width: 100%;
-    height: 48px;
-    min-height: 48px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font: inherit;
-    resize: vertical;
-    -webkit-transition: height 200ms linear;
-    line-height: normal;
-}
-#whats-new-form #whats-new-options
+    /*background: red;*/
     overflow: hidden;
 }
-#whats-new-form #whats-new-post-in-box {
-
+#whats-new-form #whats-new-content textarea {
+    height: 50px;
 }
-#whats-new-form #whats-new-submit {
-    float: right;
+#whats-new-form hr {
+    margin: 20px 0 0;
 }
 
 
@@ -235,6 +219,23 @@ ul#activity-stream li {
     padding: 15px 0;
     border-bottom: 1px solid #ccc;
 }
+ul#activity-stream.permalink > li:first-child {
+    border-bottom: 0;
+}
+
+/* Load more */
+
+ul#activity-stream li.load-more {
+    background: #f4f4f4;
+    text-align: center;
+    padding: 10px 0;
+}
+ul#activity-stream li.load-more a {
+    display: block;
+    margin: -10px 0;
+    padding: 10px 0;
+}
+
 ul#activity-stream .activity-item {
     overflow: hidden;
 }
@@ -254,6 +255,9 @@ ul#activity-stream .activity-avatar img {
 }
 ul#activity-stream .activity-content {
     margin-left: 58px;
+}
+ul#activity-stream.permalink > li:first-child > .activity-content .activity-inner {
+    font-size: 18px;
 }
 ul#activity-stream .activity-content .activity-inner,
 ul#activity-stream .activity-comments .acomment-content {
@@ -466,7 +470,8 @@ ul#activity-stream .activity-comments .acomment-item:hover .acomment-options a.a
     display: table-cell;
     vertical-align: top;
 }
-.ac-form .ac-reply-content textarea {
+.ac-form .ac-reply-content textarea,
+#whats-new-content #whats-new {
     width: 100%;
     height: 48px;
     min-height: 48px;
@@ -485,7 +490,8 @@ ul#activity-stream .activity-comments .acomment-item:hover .acomment-options a.a
     border: 1px solid #999;
     -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
-.ac-form .ac-reply-content input[type="submit"] {
+.ac-form .ac-reply-content input[type="submit"],
+#whats-new-content #aw-whats-new-submit {
     float: right;
     background: #ececec;
     background: -moz-linear-gradient(top, #f4f4f4, #ececec);
@@ -504,10 +510,12 @@ ul#activity-stream .activity-comments .acomment-item:hover .acomment-options a.a
     -webkit-box-shadow: inset 0 1px 0 #fff;
     box-shadow: inset 0 1px 0 #fff;
 }
-.ac-form .ac-reply-content input[type="submit"]::-moz-focus-inner {
+.ac-form .ac-reply-content input[type="submit"]::-moz-focus-inner,
+#whats-new-content #aw-whats-new-submit::-moz-focus-inner {
     border: 0;
 }
-.ac-form .ac-reply-content input[type="submit"]:hover {
+.ac-form .ac-reply-content input[type="submit"]:hover,
+#whats-new-content #aw-whats-new-submit:hover {
     cursor: pointer;
     background: #f4f4f4;
     background: -moz-linear-gradient(top, #fff, #f4f4f4);
@@ -515,7 +523,8 @@ ul#activity-stream .activity-comments .acomment-item:hover .acomment-options a.a
     background: linear-gradient(top, #fff, #f4f4f4);
     color: #000;
 }
-.ac-form .ac-reply-content input[type="submit"]:active {
+.ac-form .ac-reply-content input[type="submit"]:active,
+#whats-new-content #aw-whats-new-submit:active {
     -moz-box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
     -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
     box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
