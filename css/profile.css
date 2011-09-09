@@ -234,6 +234,8 @@ ul#activity-stream {
 ul#activity-stream li {
     padding: 15px 0;
     border-bottom: 1px solid #ccc;
+}
+ul#activity-stream .activity-item {
     overflow: hidden;
 }
 ul#activity-stream .activity-avatar {
@@ -241,6 +243,9 @@ ul#activity-stream .activity-avatar {
     width: 48px;
     height: 48px;
     margin-right: 10px;
+}
+ul#activity-stream .activity-avatar a {
+    display: block;
 }
 ul#activity-stream .activity-avatar img {
     display: block;
@@ -250,35 +255,72 @@ ul#activity-stream .activity-avatar img {
 ul#activity-stream .activity-content {
     margin-left: 58px;
 }
+ul#activity-stream .activity-content .activity-inner,
+ul#activity-stream .activity-comments .acomment-content {
+    word-wrap: break-word;
+}
+
+ul#activity-stream .activity-content .activity-inner p,
+ul#activity-stream .activity-comments .acomment-content p {
+    margin: 0.6em 0;
+}
+ul#activity-stream .activity-content .activity-inner p:first-child,
+ul#activity-stream .activity-comments .acomment-content p:first-child {
+    margin-top: 0;
+}
+ul#activity-stream .activity-content .activity-inner p:last-child,
+ul#activity-stream .activity-comments .acomment-content p:last-child {
+    margin-bottom: 0;
+}
+ul#activity-stream .activity-content .activity-inner img,
+ul#activity-stream .activity-comments .acomment-content img {
+    max-width: 100%;
+}
+
 ul#activity-stream .activity-content .activity-header {
     margin-top: -3px;
+    font-size: 13px !important;
 }
+ul#activity-stream .activity-content .activity-header a.username,
+ul#activity-stream .activity-comments .acomment-header a.username {
+    font-weight: bold;
+    color: #2E3436;
+    text-decoration: none;
+}
+ul#activity-stream .activity-content .activity-header a.username:hover,
+ul#activity-stream .activity-comments .acomment-header a.username:hover {
+    text-decoration: underline;
+}
+
 ul#activity-stream .activity-content .activity-header,
-ul#activity-stream .activity-content .activity-meta {
+ul#activity-stream .activity-content .activity-meta,
+ul#activity-stream .activity-comments .acomment-options {
     color: #888a85;
-    font-size: 13px;
+    font-size: 12px;
 }
 ul#activity-stream .activity-content .activity-header a,
-ul#activity-stream .activity-content .activity-meta a {
+ul#activity-stream .activity-content .activity-meta a,
+ul#activity-stream .activity-comments .acomment-options a {
     color: inherit;
     outline: none;
-}
-ul#activity-stream .activity-content .activity-header a:first-child {
-    font-weight: bold;
     text-decoration: none;
-    color: #2E3436;
 }
-ul#activity-stream .activity-content .activity-header a:first-child:hover {
+ul#activity-stream .activity-content .activity-header a:hover,
+ul#activity-stream .activity-content .activity-meta a:hover,
+ul#activity-stream .activity-comments .acomment-options a:hover {
     text-decoration: underline;
 }
 ul#activity-stream .activity-content .activity-header img {
     vertical-align: middle;
     margin-right: 3px;
 }
-ul#activity-stream .activity-content .activity-header .right {
-    margin-right: 10px;
-}
-ul#activity-stream .activity-content .activity-header .delete-activity {
+
+/* Delete button */
+
+ul#activity-stream .activity-content .activity-header .delete-activity,
+ul#activity-stream .activity-content .activity-header .delete-activity-single,
+ul#activity-stream .activity-comments .acomment-delete {
+    float: right;
     display: block;
     width: 16px;
     height: 16px;
@@ -290,7 +332,9 @@ ul#activity-stream .activity-content .activity-header .delete-activity {
     -webkit-transition: opacity 200ms linear;
     transition: opacity 200ms linear;
 }
-ul#activity-stream li:hover .activity-content .activity-header .delete-activity {
+ul#activity-stream .activity-content:hover .activity-header .delete-activity,
+ul#activity-stream .activity-content:hover .activity-header .delete-activity-single,
+ul#activity-stream .activity-comments .acomment-item:hover .acomment-delete {
     opacity: 1;
 }
 
@@ -298,6 +342,7 @@ ul#activity-stream li:hover .activity-content .activity-header .delete-activity 
 ul#activity-stream .activity-content .activity-meta {
     line-height: 16px;
     margin-top: 3px;
+    overflow: hidden;
 }
 ul#activity-stream .activity-content .activity-meta > a,
 ul#activity-stream .activity-content .activity-meta > span {
@@ -322,14 +367,15 @@ ul#activity-stream .activity-content .activity-meta a.acomment-reply {
     transition: opacity 200ms linear;
     text-decoration: none !important;
 }
-ul#activity-stream li:hover .activity-content .activity-meta a {
+ul#activity-stream li .activity-content:hover .activity-meta a {
     opacity: 1;
 }
+
+/* Comments */
 
 ul#activity-stream .activity-comments {
     clear: left;
     margin-left: 30px;
-    overflow: hidden;
 }
 ul#activity-stream .activity-comments > ul {
     margin-top: 15px;
@@ -340,6 +386,9 @@ ul#activity-stream .activity-comments li {
     border-left: 3px solid #eeeeec;
     margin-bottom: 10px;
 }
+ul#activity-stream .activity-comments li .acomment-item {
+    
+}
 ul#activity-stream .activity-comments li:last-child {
     margin-bottom: 0;
 }
@@ -348,21 +397,18 @@ ul#activity-stream .activity-comments li ul {
 }
 ul#activity-stream .activity-comments .acomment-avatar {
     float: left;
-    margin-right: 6px;
+    margin-right: 12px;
 }
 ul#activity-stream .activity-comments .acomment-avatar img {
-    vertical-align: middle;
+    vertical-align: top;
 }
-ul#activity-stream .activity-comments .acomment-content {
-    margin: 3px 0;
+ul#activity-stream .activity-comments .acomment-header,
+ul#activity-stream .activity-comments .acomment-content,
+ul#activity-stream .activity-comments .acomment-options {
+    margin-left: 62px;
 }
-ul#activity-stream .activity-comments .acomment-meta {
-    color: #888a85;
-    font-size: 13px;
-    line-height: 16px;
-}
-ul#activity-stream .activity-comments .acomment-meta a.acomment-reply,
-ul#activity-stream .activity-comments .acomment-meta a.delete {
+ul#activity-stream .activity-comments .acomment-options a.acomment-reply,
+ul#activity-stream .activity-comments .acomment-options a.delete {
     margin-left: 4px;
     display: inline-block;
     vertical-align: bottom;
@@ -370,20 +416,25 @@ ul#activity-stream .activity-comments .acomment-meta a.delete {
     height: 16px;
     overflow: hidden;
     text-indent: 20px;
+    opacity: 0;
+    -moz-transition: opacity 200ms linear;
+    -webkit-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+    vertical-align: middle;
 }
+/*
 ul#activity-stream .activity-comments .acomment-meta a {
     font-weight: bold;
     color: #2E3436;
     text-decoration: none;
 }
-ul#activity-stream .activity-comments .acomment-meta a:hover {
+*/
+ul#activity-stream .activity-comments .acomment-options a:hover {
     text-decoration: underline;
 }
-ul#activity-stream .activity-comments .acomment-meta a.acomment-reply {
+ul#activity-stream .activity-comments .acomment-item:hover .acomment-options a.acomment-reply {
     background: url(../images/reply-icon.png) no-repeat;
-}
-ul#activity-stream .activity-comments .acomment-meta a.delete {
-    background: url(../images/delete-icon.png) no-repeat;
+    opacity: 1;
 }
 
 
@@ -394,29 +445,89 @@ ul#activity-stream .activity-comments .acomment-meta a.delete {
 .ac-form {
     display: none;
     clear: left;
-    padding-top: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-left: 3px solid #999;
+    padding-left: 10px;
+    overflow: hidden;
+}
+.ac-form.root {
+    margin-left: 0;
 }
 .ac-form .ac-reply-avatar {
     width: 48px;
     height: 48px;
-    float: left;
-    margin-right: 10px;
+    padding-right: 10px;
+    display: table-cell;
+    vertical-align: top;
 }
 .ac-form .ac-reply-content {
-    float: left;
-    width: 536px;
+    width: 100%;
+    display: table-cell;
+    vertical-align: top;
 }
 .ac-form .ac-reply-content textarea {
     width: 100%;
     height: 48px;
     min-height: 48px;
+    margin-bottom: 6px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font: inherit;
+    line-height: normal;
     resize: vertical;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 6px;
+    border: 1px solid #999;
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
+.ac-form .ac-reply-content input[type="submit"] {
+    float: right;
+    background: #ececec;
+    background: -moz-linear-gradient(top, #f4f4f4, #ececec);
+    background: -webkit-linear-gradient(top, #f4f4f4, #ececec);
+    background: linear-gradient(top, #f4f4f4, #ececec);
+    padding: 1px 14px;
+    border: 1px solid #ccc;
+    color: #2e3436;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-transition: background 100ms linear;
+    -moz-transition: background 100ms linear;
+    transition: background 100ms linear;
+    -moz-box-shadow: inset 0 1px 0 #fff;
+    -webkit-box-shadow: inset 0 1px 0 #fff;
+    box-shadow: inset 0 1px 0 #fff;
+}
+.ac-form .ac-reply-content input[type="submit"]::-moz-focus-inner {
+    border: 0;
+}
+.ac-form .ac-reply-content input[type="submit"]:hover {
+    cursor: pointer;
+    background: #f4f4f4;
+    background: -moz-linear-gradient(top, #fff, #f4f4f4);
+    background: -webkit-linear-gradient(top, #fff, #f4f4f4);
+    background: linear-gradient(top, #fff, #f4f4f4);
+    color: #000;
+}
+.ac-form .ac-reply-content input[type="submit"]:active {
+    -moz-box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
+    -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
+    background: background: #dedede;
+    background: -moz-linear-gradient(top, #ececec, #dedede);
+    background: -webkit-linear-gradient(top, #ececec, #dedede);
+    background: linear-gradient(top, #ececec, #dedede);
+}
+.ac-form .error {
+    margin-top: 6px;
+}
+
 
 
 /* Profile Fields */

@@ -61,14 +61,13 @@ add_action( 'wp_enqueue_scripts', 'bp_dtheme_enqueue_gnome_scripts' );
 
 
 
-/* Create /login url support instead of /wp-login.php */
+/* Replace "Read more" string */
 /* ========================================================================== */
 
 
-//add_action( 'init', function() {
-    add_rewrite_rule( 'login/?$', 'wp-login.php', 'top' );
-    flush_rewrite_rules();
-//});
+add_filter('bp_activity_excerpt_append_text', function() {
+    return 'read more »';
+});
 
 
 
