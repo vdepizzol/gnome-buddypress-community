@@ -43,20 +43,35 @@ h6 {
 ol {
     list-style:decimal;
 }
-/*
-ul {
+
+.content ul {
     list-style:square;
 }
-li {
+.content li {
     margin-left:30px;
 }
-dl,dt,h1,h2,h3,h4,h5,h6,pre,table,address,fieldset {
+.content dl,
+.content dt,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content pre,
+.content table,
+.content address,
+.content fieldset {
     margin: 0.8em 0 0.4em;
 }
-p, dd, .action_box, ul, ol {
+.content p,
+.content dd,
+.content .action_box,
+.content ul,
+.content ol {
     margin: 0.4em 0 1em;
 }
-*/
+
 code {
     background: #ececec;
     background: rgba(0,0,0,0.1);
@@ -95,4 +110,52 @@ code {
 #footer {
     font-size: 11px;
     line-height: 1.5em;
+}
+
+/* Page Title */
+/* ========================================================================== */
+
+
+
+.page_title {
+   margin: 10px 0 20px;
+   border-bottom: 1px solid #d3d7cf;
+}
+.page_title h1 {
+    margin: 0;
+    font-size: 37px;
+    text-shadow: 0 1px 0 #fff;
+    line-height: normal;
+    letter-spacing: -0.08em;
+}
+.page_title h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+.page_title h1 a:hover {
+    text-decoration: underline;
+}
+
+/* Separators */
+/* ========================================================================== */
+
+hr {
+    border: 0 #ccc solid;
+    border-top-width: 1px;
+    clear: both;
+    height: 0;
+    margin: 40px 0;
+}
+
+hr.top_shadow,
+hr.bottom_shadow {
+    height: 25px;
+    background: url(../images/hr-shadow.png) no-repeat bottom;
+    background-size: contain;
+    border: 0;
+}
+hr.bottom_shadow {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
