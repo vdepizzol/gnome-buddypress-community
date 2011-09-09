@@ -43,8 +43,22 @@
 		
         <!-- global gnome.org domain bar -->
         <div id="global_domain_bar">
-            <div>
-                <a href="/"><strong>GNOME</strong>.ORG</a>
+            <div class="maxwidth">
+                <div class="tab">
+                    <a class="root" href="http://www.gnome.org/">GNOME.org</a>
+                    <?php if ( is_user_logged_in() ) : ?>
+                    <a class="user" href="<?php echo bp_loggedin_user_domain() ?>"><?php echo bp_core_get_username( bp_loggedin_user_id() ); ?></a>
+                    <?php else: ?>
+                    <a href="<?php echo get_bloginfo('url') . '/wp-login.php'; ?>">Login</a>
+                    <?php endif; ?>
+                </div>
+                <div class="user_settings">
+                    <ul>
+                        <li><a href="<?php echo bp_loggedin_user_domain() ?>">Your profile</a></li>
+                        <li><a href="<?php echo bp_loggedin_user_domain() ?>settings/">Settings</a></li>
+                        <li><a href="<?php echo wp_logout_url( bp_get_root_domain() ) ?>">Log out</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         
