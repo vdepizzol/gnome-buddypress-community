@@ -46,6 +46,19 @@ define('BP_DISABLE_ADMIN_BAR', true);
 
 define('BP_DTHEME_DISABLE_CUSTOM_HEADER', true);
 
+if ( !function_exists( 'bp_dtheme_enqueue_styles' ) ) :
+    function bp_dtheme_enqueue_styles() {
+        wp_dequeue_style('bp-admin-bar');
+        wp_enqueue_style( 'gnome-style', get_bloginfo('stylesheet_directory') . '/style.css', array(), $version );
+    }
+    add_action( 'wp_print_styles', 'bp_dtheme_enqueue_styles' );
+endif;
+
+function bp_dtheme_enqueue_gnome_scripts() {
+    wp_enqueue_script( 'gnome-template', get_bloginfo('stylesheet_directory') . '/template.js', array( 'jquery' ), $version );
+}
+add_action( 'wp_enqueue_scripts', 'bp_dtheme_enqueue_gnome_scripts' );
+
 
 
 /* Create /login url support instead of /wp-login.php */

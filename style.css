@@ -260,6 +260,7 @@ a:visited {
     top: 1px;
 }
 #globalnav li.active a,
+#globalnav li.current_page_item a,
 #globalnav li.selected a {
     background: #7fa7d4;
     padding: 5px 15px;
@@ -275,6 +276,7 @@ a:visited {
     position: relative;
 }
 #globalnav li.active a:after,
+#globalnav li.current_page_item a:after,
 #globalnav li.selected a:after {
     content: url(images/globalnav-arrow.png);
     position: absolute;
