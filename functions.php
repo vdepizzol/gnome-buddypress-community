@@ -47,6 +47,115 @@ define('BP_DISABLE_ADMIN_BAR', true);
 define('BP_DTHEME_DISABLE_CUSTOM_HEADER', true);
 
 
+
+/* Create /login url support instead of /wp-login.php */
+/* ========================================================================== */
+
+
+//add_action( 'init', function() {
+    add_rewrite_rule( 'login/?$', 'wp-login.php', 'top' );
+    flush_rewrite_rules();
+//});
+
+
+
+/* Provide custom image header for login page */
+/* ========================================================================== */
+
+
+add_action('login_head', function() {
+    echo '
+        <link rel="stylesheet" href="' . get_bloginfo('stylesheet_directory') . '/css/fonts.css" type="text/css" media="screen" />
+        <style type="text/css">
+        html {
+            background: #fff url(' . get_bloginfo('stylesheet_directory') . '/images/html-bg.png) 0 10px repeat-x !important;
+        }
+        body,
+        body form .input,
+        .button-primary {
+            font-family: Cantarell !important;
+        }
+        h1 a {
+            background-image: url(' . get_bloginfo('stylesheet_directory') . '/images/community-logo.png) !important;
+        }
+    </style>';
+});
+
+add_action('login_headertitle', function() {
+    echo 'GNOME Community';
+});
+
+add_action('login_headerurl', function() {
+    echo get_bloginfo('url') . '/';
+});
+
+
+/* List of Members JSON */
+/* ========================================================================== */
+
+if (isset($_GET['members_json'])) {
+    
+    header("Cache-Control: max-age=21600, must-revalidate");
+    
+    global $bp;
+    
+    //delete_transient('gnome_all_users_position');
+
+    if (false === ($users_on_map = get_transient('gnome_all_users_position'))) {
+        
+        $field_name = xprofile_get_field_id_from_name('Name');
+        $field_location = xprofile_get_field_id_from_name(GNOME_FIELD_LOCATION);
+        $field_geoposition = xprofile_get_field_id_from_name(GNOME_FIELD_GEOPOSITION);
+        
+        $users_raw_data = $wpdb->get_results( "SELECT `value`, `user_id`, `field_id` FROM " . $bp->profile->table_name_data . " " .
+                                              "WHERE `field_id` IN ('" . $field_name . "', '" . $field_geoposition . "', '" . $field_location . "') ".
+                                              "ORDER BY `user_id` ASC");
+        
+        $users_login_data = $wpdb->get_results( "SELECT `ID`, `user_nicename` FROM " . $wpdb->users );
+                
+        $users_on_map = array();
+        
+        foreach ($users_raw_data as $key => $user_data) {
+            
+            if ($user_data->field_id == $field_name) {
+                $users_on_map[$user_data->user_id]['name'] = $user_data->value;
+            }
+            
+            if ($user_data->field_id == $field_geoposition) {
+                $latlng = explode('/', $user_data->value);
+                $lat = number_format($latlng[0], 3, '.', '');
+                $lng = number_format($latlng[1], 3, '.', '');
+                
+                $users_on_map[$user_data->user_id]['lat'] = $lat;
+                $users_on_map[$user_data->user_id]['lng'] = $lng;
+            }
+            
+            if ($user_data->field_id == $field_location) {
+                $users_on_map[$user_data->user_id]['location'] = $user_data->value;
+            }
+            
+        }
+        
+        foreach ($users_login_data as $key => $user_data) {
+            $users_on_map[$user_data->ID]['user'] = $user_data->user_nicename;
+        }
+        
+        set_transient('gnome_all_users_position', serialize($users_on_map), (3600 * 3)); // 3 hours
+        
+    } else {
+        
+        $users_on_map = unserialize($users_on_map);
+
+    }
+    
+    echo json_encode($users_on_map);
+    
+    die;
+    
+}
+
+
+
 /*
  * Remove automatic html from stream of activities so our template can do
  * whatever we want to
